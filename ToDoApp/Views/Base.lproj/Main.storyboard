@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KG3-ss-LfF">
+                                <rect key="frame" x="0.0" y="25" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhz-M3-Ytc">
+                                        <rect key="frame" x="152.5" y="14.5" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAa-WL-GUp">
+                                        <rect key="frame" x="330" y="10" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="6U7-QI-5qd"/>
+                                            <constraint firstAttribute="height" constant="25" id="8FU-Sj-f4U"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_plus"/>
+                                        <connections>
+                                            <action selector="btnAddToDoWorkTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ER7-YN-Xwv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6dv-UH-3Nc"/>
+                                    <constraint firstItem="Rhz-M3-Ytc" firstAttribute="centerX" secondItem="KG3-ss-LfF" secondAttribute="centerX" id="IyY-Vd-e3u"/>
+                                    <constraint firstItem="Rhz-M3-Ytc" firstAttribute="centerY" secondItem="KG3-ss-LfF" secondAttribute="centerY" id="Q60-ZE-95G"/>
+                                    <constraint firstItem="BAa-WL-GUp" firstAttribute="top" secondItem="KG3-ss-LfF" secondAttribute="top" constant="10" id="VAY-jL-gLk"/>
+                                    <constraint firstAttribute="trailing" secondItem="BAa-WL-GUp" secondAttribute="trailing" constant="20" id="bAZ-3g-iAv"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nfk-IC-5zX">
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="VrI-FR-GBs"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoCell" rowHeight="65" id="aR5-Qv-Jiy" customClass="toDoWorkCell" customModule="ToDoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aR5-Qv-Jiy" id="Mrt-MY-4NG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="24/06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eac-Ka-VB7">
+                                                    <rect key="frame" x="11" y="15" width="32" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elt-dy-GUa">
+                                                    <rect key="frame" x="10" y="37" width="300" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVq-cK-fsp">
+                                                    <rect key="frame" x="332" y="18.5" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="fZf-Qc-y0S"/>
+                                                        <constraint firstAttribute="height" constant="28" id="tfi-j8-kHd"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icons8-unchecked_checkbox"/>
+                                                    <state key="selected" image="icons8-checked_checkbox"/>
+                                                    <connections>
+                                                        <action selector="checkBoxIsDoneTapped:" destination="aR5-Qv-Jiy" eventType="touchUpInside" id="BZt-dT-7RB"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="elt-dy-GUa" firstAttribute="width" secondItem="Mrt-MY-4NG" secondAttribute="width" multiplier="0.8" id="2E4-CW-AiO"/>
+                                                <constraint firstItem="eac-Ka-VB7" firstAttribute="leading" secondItem="Mrt-MY-4NG" secondAttribute="leading" constant="11" id="35Y-IF-4Cc"/>
+                                                <constraint firstAttribute="bottom" secondItem="elt-dy-GUa" secondAttribute="bottom" constant="12" id="RHA-Fb-dzI"/>
+                                                <constraint firstItem="elt-dy-GUa" firstAttribute="leading" secondItem="Mrt-MY-4NG" secondAttribute="leading" constant="10" id="djd-Fv-5eF"/>
+                                                <constraint firstAttribute="trailing" secondItem="wVq-cK-fsp" secondAttribute="trailing" constant="15" id="g6f-aY-wMw"/>
+                                                <constraint firstItem="wVq-cK-fsp" firstAttribute="centerY" secondItem="Mrt-MY-4NG" secondAttribute="centerY" id="hfG-BZ-sso"/>
+                                                <constraint firstItem="elt-dy-GUa" firstAttribute="top" secondItem="eac-Ka-VB7" secondAttribute="bottom" constant="10" id="nkE-wF-iGi"/>
+                                                <constraint firstItem="eac-Ka-VB7" firstAttribute="top" secondItem="Mrt-MY-4NG" secondAttribute="top" constant="14" id="uoX-ai-so1"/>
+                                                <constraint firstAttribute="bottom" secondItem="elt-dy-GUa" secondAttribute="bottom" constant="12" id="vEX-mT-mjB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBoxIsDone" destination="wVq-cK-fsp" id="2OF-a5-bOe"/>
+                                            <outlet property="lblCreatedDate" destination="eac-Ka-VB7" id="ywm-cs-TKs"/>
+                                            <outlet property="lblWorkDetail" destination="elt-dy-GUa" id="oe6-D4-Dcx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="mJY-xo-QdR"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Rqx-W5-UnA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KG3-ss-LfF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="1HV-xj-wbh"/>
+                            <constraint firstItem="nfk-IC-5zX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="23X-4n-iKl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nfk-IC-5zX" secondAttribute="trailing" id="2UN-wr-i4I"/>
+                            <constraint firstItem="nfk-IC-5zX" firstAttribute="top" secondItem="KG3-ss-LfF" secondAttribute="bottom" id="F3j-yo-mJs"/>
+                            <constraint firstItem="KG3-ss-LfF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KXu-WE-eYd"/>
+                            <constraint firstItem="KG3-ss-LfF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cYy-94-JEF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nfk-IC-5zX" secondAttribute="bottom" id="p99-3m-kEH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="tbvToDoList" destination="nfk-IC-5zX" id="8eS-2r-hVN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="26.53673163418291"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_plus" width="21" height="21"/>
+        <image name="icons8-checked_checkbox" width="24" height="24"/>
+        <image name="icons8-unchecked_checkbox" width="24" height="24"/>
+    </resources>
+</document>
