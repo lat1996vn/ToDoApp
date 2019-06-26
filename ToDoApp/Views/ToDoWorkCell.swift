@@ -29,7 +29,7 @@ class toDoWorkCell: UITableViewCell {
     
     func configCell(toDoWork: ToDoWork) {
         lblCreatedDate.text = toDoWork.createdDate
-        lblWorkDetail.text = toDoWork.workDetail
+        lblWorkDetail.text = toDoWork.workTitle
         if toDoWork.isDone {
             checkBoxIsDone.isSelected = true
         }
