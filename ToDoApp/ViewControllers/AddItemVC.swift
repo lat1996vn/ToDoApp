@@ -18,9 +18,6 @@ class AddItemVC: UIViewController {
         toDoWork.workTitle = tfWorkTitle.text!
         toDoWork.workDetail = tvWorkDetail.text
         toDoWork.createdDate = getCurrentDate()
-        print(toDoWork.workTitle)
-        print(toDoWork.workDetail)
-        print(toDoWork.createdDate)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

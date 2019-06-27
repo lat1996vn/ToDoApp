@@ -21,7 +21,11 @@ class ToDoWork {
         }
     }
     var completedDate: String {
-        return _completedDate
+        get {
+            return _completedDate
+        } set {
+            _completedDate = newValue
+        }
     }
     var workTitle: String {
         get {
@@ -38,7 +42,11 @@ class ToDoWork {
         }
     }
     var isDone: Bool {
-        return _isDone
+        get {
+            return _isDone
+        } set {
+            _isDone = newValue
+        }
     }
     
     init() {

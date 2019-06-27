@@ -54,17 +54,26 @@
                                                     <state key="normal" image="icons8-unchecked_checkbox"/>
                                                     <state key="selected" image="icons8-checked_checkbox"/>
                                                     <connections>
+                                                        <action selector="btnCheckBoxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t4e-Ov-gfB"/>
                                                         <action selector="checkBoxIsDoneTapped:" destination="aR5-Qv-Jiy" eventType="touchUpInside" id="BZt-dT-7RB"/>
                                                     </connections>
                                                 </button>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24/06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pda-KA-1SL">
+                                                    <rect key="frame" x="285.5" y="15" width="40.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <color key="textColor" red="0.89689086294416243" green="0.0" blue="0.050322463491518712" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="elt-dy-GUa" firstAttribute="width" secondItem="Mrt-MY-4NG" secondAttribute="width" multiplier="0.8" id="2E4-CW-AiO"/>
                                                 <constraint firstItem="eac-Ka-VB7" firstAttribute="leading" secondItem="Mrt-MY-4NG" secondAttribute="leading" constant="11" id="35Y-IF-4Cc"/>
                                                 <constraint firstAttribute="bottom" secondItem="elt-dy-GUa" secondAttribute="bottom" constant="12" id="RHA-Fb-dzI"/>
+                                                <constraint firstItem="Pda-KA-1SL" firstAttribute="top" secondItem="Mrt-MY-4NG" secondAttribute="top" constant="15" id="cZc-kh-Vtg"/>
                                                 <constraint firstItem="elt-dy-GUa" firstAttribute="leading" secondItem="Mrt-MY-4NG" secondAttribute="leading" constant="10" id="djd-Fv-5eF"/>
                                                 <constraint firstAttribute="trailing" secondItem="wVq-cK-fsp" secondAttribute="trailing" constant="15" id="g6f-aY-wMw"/>
                                                 <constraint firstItem="wVq-cK-fsp" firstAttribute="centerY" secondItem="Mrt-MY-4NG" secondAttribute="centerY" id="hfG-BZ-sso"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Pda-KA-1SL" secondAttribute="trailing" constant="8" id="nc2-U8-nyi"/>
                                                 <constraint firstItem="elt-dy-GUa" firstAttribute="top" secondItem="eac-Ka-VB7" secondAttribute="bottom" constant="10" id="nkE-wF-iGi"/>
                                                 <constraint firstItem="eac-Ka-VB7" firstAttribute="top" secondItem="Mrt-MY-4NG" secondAttribute="top" constant="14" id="uoX-ai-so1"/>
                                                 <constraint firstAttribute="bottom" secondItem="elt-dy-GUa" secondAttribute="bottom" constant="12" id="vEX-mT-mjB"/>
@@ -72,6 +81,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkBoxIsDone" destination="wVq-cK-fsp" id="2OF-a5-bOe"/>
+                                            <outlet property="lblCompletedDate" destination="Pda-KA-1SL" id="dYR-SS-48U"/>
                                             <outlet property="lblCreatedDate" destination="eac-Ka-VB7" id="ywm-cs-TKs"/>
                                             <outlet property="lblWorkDetail" destination="elt-dy-GUa" id="oe6-D4-Dcx"/>
                                         </connections>
@@ -107,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954" y="15"/>
+            <point key="canvasLocation" x="952.79999999999995" y="14.842578710644679"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e5j-1T-beq">

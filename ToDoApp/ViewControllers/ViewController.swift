@@ -36,27 +36,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == SectionType.Todo.rawValue {
+            return "List"
+        } else {
+            return "Completed"
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
         return CGFloat(50)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tbvToDoList.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath) as? toDoWorkCell {
-        cell.configCell(toDoWork: todoList[indexPath.row])
-        return cell
+            if(indexPath.section == SectionType.Todo.rawValue){
+                cell.configCell(toDoWork: todoList[indexPath.row])
+            } else {
+                cell.configCell(toDoWork: completedList[indexPath.row])
+            }
+            return cell
         }
         
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "MainToItemDetail", sender: todoList[indexPath.row])
+        if(indexPath.section == SectionType.Todo.rawValue) {
+            performSegue(withIdentifier: "MainToItemDetail", sender: todoList[indexPath.row])
+        }else{
+            performSegue(withIdentifier: "MainToItemDetail", sender: completedList[indexPath.row])
+        }
     }
     
     func refresh(){
-        print("refreshed")
         self.tbvToDoList.reloadData()
     }
 
@@ -64,7 +79,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "MainToItemDetail" {
             if let destination = segue.destination as? ItemDetailVC {
                 if let toDoWork = sender as? ToDoWork {
-                    print("Pass1")
                     destination.toDoWork = toDoWork
                 }
             }
@@ -75,16 +89,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Use data from the view controller which initiated the unwind segue
         if sender.identifier == "AddItemToMain" {
             if let addItemVC = sender.source as? AddItemVC {
-                print("SAVE")
                 todoList.insert(addItemVC.toDoWork, at: 0)
             }
         }
         tbvToDoList.reloadData()
     }
     
+    @IBAction func btnCheckBoxTapped(_ sender: UIButton) {
+        if let cell = sender.superview?.superview as? toDoWorkCell {
+            if let index = tbvToDoList.indexPath(for: cell) {
+                if index.section == SectionType.Todo.rawValue {
+                    todoList[index.row].isDone = true
+                    todoList[index.row].completedDate = getCurrentDate()
+                    completedList.insert(todoList[index.row], at: 0)
+                    todoList.remove(at: index.row)
+                }
+            }
+        }
+        refresh()
+        
+    }
+    
+    func getCurrentDate() -> String {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM"
+        let dateString = dateFormatter.string(from: currentDate)
+        return dateString
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        var imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+//        imgView.image = UIImage(named: "icon_list")
+//        tbvToDoList.headerView(forSection: 0)?.addSubview(imgView)
     }
 
 }
